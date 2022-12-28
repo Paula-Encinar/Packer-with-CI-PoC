@@ -19,7 +19,7 @@ data "amazon-ami" "ubuntu-focal-west" {
 }
 
 source "amazon-ebs" "base_west" {
-  ami_name      = "${var.ami_prefix}-${local.timestamp}"
+  ami_name      = "packer-aws-image"
   instance_type = "t2.micro"
   region        = "us-west-2"
   source_ami    = data.amazon-ami.ubuntu-focal-west.id
@@ -32,10 +32,10 @@ build {
     "source.amazon-ebs.base_west"
   ]
 
-  provisioner "shell"{
+  provisioner "shell" {
     inline = ["sudo apt-get update && sudo apt-get upgrade -y"]
   }
-  
+
   post-processor "manifest" {
     output = "packer_manifest.json"
   }
