@@ -7,47 +7,36 @@ packer {
   }
 }
 
+data "amazon-ami" "ubuntu-focal-west" {
+  region = "us-west-2"
+  filters = {
+    name                = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
+    root-device-type    = "ebs"
+    virtualization-type = "hvm"
+  }
+  most_recent = true
+  owners      = ["099720109477"]
+}
 
-source "amazon-ebs" "ubuntu-focal" {
-  ami_name      = "${var.ami_prefix}-focal-${local.timestamp}"
+source "amazon-ebs" "base_west" {
+  ami_name      = "${var.ami_prefix}-${local.timestamp}"
   instance_type = "t2.micro"
   region        = "us-west-2"
-  source_ami_filter {
-    filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
-      root-device-type    = "ebs"
-      virtualization-type = "hvm"
-    }
-    most_recent = true
-    owners      = ["099720109477"]
-  }
-  ssh_username = "ubuntu"
+  source_ami    = data.amazon-ami.ubuntu-focal-west.id
+  ssh_username  = "ubuntu"
 }
-
 
 build {
-  name    = "learn-packer"
+  name = "packer-golden-image"
   sources = [
-    "source.amazon-ebs.ubuntu-focal"
+    "source.amazon-ebs.base_west"
   ]
 
-  provisioner "shell" {
-  environment_vars = [
-    "FOO=hello world",
-  ]
-  inline = [
-    "echo Installing Redis",
-    "sleep 30",
-    "sudo apt-get update",
-  ]
- }
-  provisioner "shell" {
-    inline = ["echo This provisioner runs last"]
+  provisioner "shell"{
+    inline = ["sudo apt-get update && sudo apt-get upgrade -y"]
   }
-
+  
+  post-processor "manifest" {
+    output = "packer_manifest.json"
+  }
 }
-
-
-
-
-
