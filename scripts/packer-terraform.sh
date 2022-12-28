@@ -3,8 +3,9 @@
 set -eo pipefail
 
 #Vars
+terranetworkpath="../terraform-bucket"
 packerhclpath="../packer"
-terradeploypath="../terraform"
+terradeploypath="../terraform-deploy"
 packerhclfilename="aws-ubuntu.pkr.hcl"
 
 case "$1" in
