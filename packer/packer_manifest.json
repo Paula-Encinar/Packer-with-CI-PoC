@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672222111,
+      "files": null,
+      "artifact_id": "us-west-2:ami-0dbc54a9e3f0f79d4",
+      "packer_run_uuid": "da225ec2-ebd4-82fa-df51-7850a828c9ba",
+      "custom_data": null
+    }
+  ],
+  "last_run_uuid": "da225ec2-ebd4-82fa-df51-7850a828c9ba"
+}
