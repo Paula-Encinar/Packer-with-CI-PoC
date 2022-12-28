@@ -45,7 +45,7 @@ case "$1" in
       cd $packerhclpath && packer validate $packerhclfilename
 
       if [ $? -eq 0 ]; then
-        cd $packerhclpath && packer build -force -var access_key="$AWS_ACCESS_KEY_ID" -var secret_key="$AWS_SECRET_ACCESS_KEY"  $packerhclfilename
+        cd $packerhclpath && packer build $packerhclfilename
         echo ""
       else
         echo "Validate failed"    
@@ -58,7 +58,7 @@ case "$1" in
       echo ""     
 
       echo "Upload packer_manifest.json file from S3"
-      aws s3 cp $packerhclpath/packer_manifest.json  s3://packer-manifest/packer_manifest/packer_manifest.json
+      aws s3 cp $packerhclpath/packer_manifest.json  s3://packer-manifest/packer-manifest/packer_manifest.json
 
       echo "Retrieve AMI_ID packer_manifest.json"
       AMI_ID=$(cd $packerhclpath && jq -r '.builds[-1].artifact_id' packer_manifest.json | cut -d ":" -f2)
