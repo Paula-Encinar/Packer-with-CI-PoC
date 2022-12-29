@@ -35,7 +35,13 @@ build {
   provisioner "shell" {
     inline = ["sudo apt-get update && sudo apt-get upgrade -y"]
   }
-
+  provisioner "shell" {
+    scripts = [
+      "nodeinstallation.sh",
+      "nvm.sh"
+    
+    ]
+  }
   post-processor "manifest" {
     output = "packer_manifest.json"
   }
