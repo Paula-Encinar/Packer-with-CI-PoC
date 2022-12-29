@@ -1,5 +1,5 @@
 resource "aws_instance" "app_server" {
-  ami           = "ami-0f3e85854c7d44385"
+  ami           = var.packer_ami_id
   instance_type = "t2.micro"
   key_name = "AWS"
 
