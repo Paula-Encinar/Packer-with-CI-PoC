@@ -3,3 +3,8 @@ variable "instance_name" {
   type        = string
   default     = "AppServerInstance"
 }
+
+variable "region" {
+    description = "Default region"
+    default = "us-west-2"
+}
