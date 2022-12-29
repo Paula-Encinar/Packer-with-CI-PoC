@@ -4,7 +4,7 @@ resource "aws_instance" "app_server" {
   key_name = "AWS"
 
   vpc_security_group_ids = [
-    aws_security_group.allow_ssh.id
+    aws_security_group.sg.id
   ]
 
   tags = {

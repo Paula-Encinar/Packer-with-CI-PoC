@@ -376,7 +376,6 @@ This application makes use of the following open source packages:
 | http-errors | 2.0.0 | MIT | https://github.com/jshttp/http-errors |
 | human-signals | 1.1.1 | Apache-2.0 | https://github.com/ehmicky/human-signals |
 | human-signals | 2.1.0 | Apache-2.0 | https://github.com/ehmicky/human-signals |
-| husky | 8.0.2 | MIT | https://github.com/typicode/husky |
 | iconv-lite | 0.4.24 | MIT | https://github.com/ashtuchkin/iconv-lite |
 | ieee754 | 1.2.1 | BSD-3-Clause | https://github.com/feross/ieee754 |
 | ignore | 5.2.4 | MIT | https://github.com/kaelzhang/node-ignore |
