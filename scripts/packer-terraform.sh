@@ -11,35 +11,17 @@ packerhclfilename="aws-ubuntu.pkr.hcl"
 case "$1" in
   all)
 
-    #   echo "terraform init => packer network infrastructure"
-    #   cd $terranetworkpath && terraform init      
-    #   echo ""
+      echo "terraform init => packer network infrastructure"
+      cd $terranetworkpath && terraform init      
+      echo ""
 
     #   echo "terraform plan => packer network infrastructure"
     #   cd $terranetworkpath && terraform plan 
     #   echo ""
 
-    #   echo "terraform apply => packer network infrastructure"
-    #   cd $terranetworkpath && terraform apply --auto-approve
-    #   echo ""
-
-    #   echo "Retrieve vpc_id"
-    #   vpc_id=$(cd $terranetworkpath && terraform output -raw vpc_packer_id)
-    #   echo "$vpc_id"
-    #   echo ""
-
-    #   echo "Retrieve subnet_id"
-    #   subnet_id=$(cd $terranetworkpath && terraform output -json public_subnets_packer | tr -d '["]')
-    #   echo "$subnet_id"
-    #   echo ""
-
-    #   echo "Change vpc_id packer.pkr.hcl"   
-    #   sudo sed -i '/vpc_id/s/.*/vpc_id="'$vpc_id'"/' $packerhclpath/$packerhclfilename && packer fmt $packerhclpath/$packerhclfilename
-    #   echo ""
-
-    #   echo "Change subnet_id packer.pkr.hcl"
-    #   sudo sed -i '/subnet_id/s/.*/subnet_id="'$subnet_id'"/' $packerhclpath/$packerhclfilename && packer fmt $packerhclpath/$packerhclfilename
-    #   echo ""
+      echo "terraform apply => packer network infrastructure"
+      cd $terranetworkpath && terraform apply --auto-approve
+      echo ""
 
       echo "Validate packer.pkr.hcl"
       cd $packerhclpath && packer validate $packerhclfilename
@@ -69,30 +51,30 @@ case "$1" in
       sed -i '/packer_ami_id/s/.*/packer_ami_id="'$AMI_ID'"/' $terradeploypath/terraform.tfvars
       echo ""
       
-    #   echo "terraform init => packer deploy infrastructure"
-    #   cd $terradeploypath && terraform init      
-    #   echo ""
+      echo "terraform init => packer deploy infrastructure"
+      cd $terradeploypath && terraform init      
+      echo ""
 
     #   echo "terraform plan => packer deploy infrastructure"
     #   cd $terradeploypath && terraform plan 
     #   echo ""
 
-    #   echo "terraform apply => packer deploy infrastructure"
-    #   cd $terradeploypath && terraform apply --auto-approve
+      echo "terraform apply => packer deploy infrastructure"
+      cd $terradeploypath && terraform apply --auto-approve
 
-    #   if [ $? -eq 0 ]; then
-    #     echo ""
-    #     echo "##################################"
-    #     echo "Deploy Infrastructure. Suceeded..."
-    #     echo "##################################"
-    #     echo ""
-    #   else
-    #     echo ""
-    #     echo "###################################################"
-    #     echo "Deploy Infrastructure. Failed. Something went wrong..."
-    #     echo "###################################################"
-    #     echo ""
-    #  fi
+      if [ $? -eq 0 ]; then
+        echo ""
+        echo "##################################"
+        echo "Deploy Infrastructure. Suceeded..."
+        echo "##################################"
+        echo ""
+      else
+        echo ""
+        echo "###################################################"
+        echo "Deploy Infrastructure. Failed. Something went wrong..."
+        echo "###################################################"
+        echo ""
+     fi
     
   ;;
   destroy)
