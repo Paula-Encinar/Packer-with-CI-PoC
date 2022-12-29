@@ -42,6 +42,10 @@ build {
     
     ]
   }
+  provisioner "shell" {
+    inline = ["nvm install node"]
+  }
+
   post-processor "manifest" {
     output = "packer_manifest.json"
   }
