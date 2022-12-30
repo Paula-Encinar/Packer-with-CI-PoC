@@ -33,17 +33,18 @@ build {
   ]
 
   provisioner "shell" {
-    inline = ["sudo apt-get update && sudo apt-get upgrade -y"]
-  }
-  provisioner "shell" {
     scripts = [
-      "nodeinstallation.sh",
-      "nvm.sh"
-    
+      "nodeinstallation.sh"
     ]
   }
-  provisioner "shell" {
-    inline = ["nvm install node"]
+
+  provisioner "shell"{
+    scripts = ["nvm.sh"]
+  }
+
+  provisioner "file"{
+    source = "../nodetest"
+    destination = "/home/ubuntu"
   }
 
   post-processor "manifest" {

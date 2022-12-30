@@ -62,7 +62,79 @@
       "artifact_id": "us-west-2:ami-0f4013459563d544e",
       "packer_run_uuid": "32d91559-64d9-63bb-7188-fbf95702ab09",
       "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672388120,
+      "files": null,
+      "artifact_id": "us-west-2:ami-080fc5921b25b1e7a",
+      "packer_run_uuid": "03e10997-3326-1c4d-4021-a634fa47d81d",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672390150,
+      "files": null,
+      "artifact_id": "us-west-2:ami-0649a70bea2c3ec89",
+      "packer_run_uuid": "a95c9147-1ce9-d70c-f33e-fa14f064c22b",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672390553,
+      "files": null,
+      "artifact_id": "us-west-2:ami-01e6f3c46eee292e8",
+      "packer_run_uuid": "fc9a736b-8cd8-b37e-cd35-5aa5159bb6d0",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672393098,
+      "files": null,
+      "artifact_id": "us-west-2:ami-0ccef29983eb76786",
+      "packer_run_uuid": "0f48d621-76f0-d458-f7f2-a8ec527dcb1a",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672394036,
+      "files": null,
+      "artifact_id": "us-west-2:ami-053d0ee5560bd2bf0",
+      "packer_run_uuid": "df8e6dfb-79ae-dc63-1e83-657debceef9c",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672394594,
+      "files": null,
+      "artifact_id": "us-west-2:ami-024c7455e3f100a12",
+      "packer_run_uuid": "216266a2-dcdc-bd7a-92dd-0beae664b2cf",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672395437,
+      "files": null,
+      "artifact_id": "us-west-2:ami-0dee3255969c6307c",
+      "packer_run_uuid": "c6487912-60d1-4928-c51d-5e2e19e1a21a",
+      "custom_data": null
+    },
+    {
+      "name": "base_west",
+      "builder_type": "amazon-ebs",
+      "build_time": 1672396713,
+      "files": null,
+      "artifact_id": "us-west-2:ami-04837c8a2205f7342",
+      "packer_run_uuid": "8350dea5-fe1c-40d6-b87b-06c08de70fc4",
+      "custom_data": null
     }
   ],
-  "last_run_uuid": "32d91559-64d9-63bb-7188-fbf95702ab09"
+  "last_run_uuid": "8350dea5-fe1c-40d6-b87b-06c08de70fc4"
 }
