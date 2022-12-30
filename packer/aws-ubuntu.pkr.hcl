@@ -32,6 +32,11 @@ build {
     "source.amazon-ebs.base_west"
   ]
 
+  provisioner "file"{
+    source = "../nodetest"
+    destination = "/home/ubuntu"
+  }
+
   provisioner "shell" {
     scripts = [
       "nodeinstallation.sh"
@@ -40,11 +45,6 @@ build {
 
   provisioner "shell"{
     scripts = ["nvm.sh"]
-  }
-
-  provisioner "file"{
-    source = "../nodetest"
-    destination = "/home/ubuntu"
   }
 
   post-processor "manifest" {
