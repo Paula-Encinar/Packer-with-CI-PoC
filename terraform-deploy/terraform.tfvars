@@ -1,1 +1,1 @@
-packer_ami_id="ami-0ec2c6068d9045ee2"
+packer_ami_id="ami-0fcec4272eb2e741e"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Author:Paula
+#Author:Paula Encinar
 set -eo pipefail
 
 #Vars
@@ -14,10 +14,6 @@ case "$1" in
       echo "terraform init => packer network infrastructure"
       cd $terranetworkpath && terraform init      
       echo ""
-
-    #   echo "terraform plan => packer network infrastructure"
-    #   cd $terranetworkpath && terraform plan 
-    #   echo ""
 
       echo "terraform apply => packer network infrastructure"
       cd $terranetworkpath && terraform apply --auto-approve
@@ -48,16 +44,12 @@ case "$1" in
       echo ""
 
       echo "Change AMI variable to Deploy"
-      sed -i '/packer_ami_id/s/.*/packer_ami_id="'$AMI_ID'"/' $terradeploypath/terraform.tfvars
+      gsed -i '/packer_ami_id/s/.*/packer_ami_id="'$AMI_ID'"/' $terradeploypath/terraform.tfvars
       echo ""
       
       echo "terraform init => packer deploy infrastructure"
       cd $terradeploypath && terraform init      
       echo ""
-
-    #   echo "terraform plan => packer deploy infrastructure"
-    #   cd $terradeploypath && terraform plan 
-    #   echo ""
 
       echo "terraform apply => packer deploy infrastructure"
       cd $terradeploypath && terraform apply --auto-approve
@@ -80,7 +72,7 @@ case "$1" in
   destroy)
 
       echo "Retrieve packer-manifest.json file from S3"
-      aws s3 cp s3://infrati-packer-manifest/packer_manifest/packer_manifest.json $packerhclpath/
+      aws s3 cp s3://packer-manifest/packer-manifest/packer_manifest.json $packerhclpath/
     
       echo "Retrieve AMI_ID packer_manifest.json"
       AMI_ID=$(jq -r '.builds[-1].artifact_id' $packerhclpath/packer_manifest.json | cut -d ":" -f2)
