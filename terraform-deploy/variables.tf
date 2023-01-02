@@ -12,8 +12,4 @@ variable "packer_ami_id" {
   description = "Packer Builded AMI"
   type        = string
 }
-variable user_data {
-  description = "User data entity"
-  type = string
-}
 

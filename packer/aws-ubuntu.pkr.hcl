@@ -43,10 +43,6 @@ build {
     ]
   }
 
-  provisioner "shell"{
-    scripts = ["nvm.sh"]
-  }
-
   post-processor "manifest" {
     output = "packer_manifest.json"
   }
