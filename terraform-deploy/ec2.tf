@@ -4,9 +4,7 @@ resource "aws_instance" "app_server" {
   key_name = "AWS"
   user_data = <<-EOF
     #!/bin/bash
-    /bin/echo "Hello World" >> /tmp/testfile.txt
     node /home/ubuntu/nodetest/dist/main.js
-    echo "Node ejecutado"
   EOF
 
   vpc_security_group_ids = [
