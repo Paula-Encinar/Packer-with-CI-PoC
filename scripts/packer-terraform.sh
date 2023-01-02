@@ -44,7 +44,7 @@ case "$1" in
       echo ""
 
       echo "Change AMI variable to Deploy"
-      gsed -i '/packer_ami_id/s/.*/packer_ami_id="'$AMI_ID'"/' $terradeploypath/terraform.tfvars
+      sed -i '/packer_ami_id/s/.*/packer_ami_id="'$AMI_ID'"/' $terradeploypath/terraform.tfvars
       echo ""
       
       echo "terraform init => packer deploy infrastructure"
