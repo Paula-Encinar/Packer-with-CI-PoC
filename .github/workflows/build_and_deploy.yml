@@ -45,9 +45,9 @@ jobs:
             echo "${HOME}/.local/bin" >> $GITHUB_PATH
         shell: bash    
 
-      - name: Init script packer-terraform-aws.sh
+      - name: Init script packer-terraform.sh
         id: init_script
         run: |
-            chmod +x packer-terraform-aws.sh
-            ./packer-terraform-aws.sh all
+            chmod +x packer-terraform.sh
+            ./packer-terraform.sh all
         shell: bash
