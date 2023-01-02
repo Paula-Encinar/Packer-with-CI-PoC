@@ -19,6 +19,9 @@ case "$1" in
       cd $terranetworkpath && terraform apply --auto-approve
       echo ""
 
+      echo "initialize packer config"
+      cd $packerhclpath && packer init $packerhclfilename
+
       echo "Validate packer.pkr.hcl"
       cd $packerhclpath && packer validate $packerhclfilename
 
